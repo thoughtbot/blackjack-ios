@@ -6,7 +6,7 @@
 //  Copyright © 2020 thoughtbot. All rights reserved.
 //
 
-class Hand: Codable {
+struct Hand {
     var deck_id: String?
     var cards: [Card] = []
     var score: Int {
