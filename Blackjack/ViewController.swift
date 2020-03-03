@@ -26,13 +26,13 @@ class ViewController: UIViewController {
     var subscription: AnyCancellable!
 
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var drawButton: UIButton!
+    @IBOutlet weak var dealButton: UIButton!
     @IBOutlet weak var deck: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpDataSource()
-        drawButton.layer.cornerRadius = drawButton.frame.size.height/4
+        dealButton.layer.cornerRadius = dealButton.frame.size.height/4
     }
 
 
@@ -63,16 +63,16 @@ class ViewController: UIViewController {
         DispatchQueue.main.async {
             if !self.hand.cards.isEmpty {
                 self.title = String(self.hand.score)
-                self.drawButton.setTitle("Deal", for: .normal)
+                self.dealButton.setTitle("Deal", for: .normal)
             } else {
                 self.title = "Blackjack"
             }
 
             if self.hand.score > 21 {
-                self.drawButton.setTitle("Busted", for: .normal)
+                self.dealButton.setTitle("Busted", for: .normal)
             }
             if self.hand.score == 21 {
-                self.drawButton.setTitle("🎊21🎉", for: .normal)
+                self.dealButton.setTitle("🎊21🎉", for: .normal)
             }
             self.deck.title = String(cardsRemaining)
         }
